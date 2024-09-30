@@ -5,6 +5,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to Tutor2You<h1>
+    <div> 
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        @csrf
+        <input name="name" type="text" placeholder= "name">
+        <input name="email" type="text" placeholder= "email">
+        <input name="password" type="password" placeholder= "password">
+        <button>Register</button>
+    </form>
+    </div>
 </body>
 </html>

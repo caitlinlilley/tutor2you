@@ -13,6 +13,18 @@
         <button>Log out</button>
     </form>
 
+    <div>
+    <h2>Create a New Post</h2>
+    <form action="/create-post" method="POST">
+        @csrf
+        <input type="text" name="title" placeholder="Course ID"> 
+        <textarea name="body" placeholder="Qualifications, experience etc."></textarea>
+        <textarea name="body" placeholder="Contact Details"></textarea>
+        <button>Post</button>
+    </form>
+
+    </div>
+
     @else
 
 

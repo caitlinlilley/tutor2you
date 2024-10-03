@@ -19,7 +19,7 @@
         @csrf
         <input type="text" name="title" placeholder="Course ID"> 
         <textarea name="body" placeholder="Qualifications, experience etc."></textarea>
-        <textarea name="body" placeholder="Contact Details"></textarea>
+        <textarea name="contact" placeholder="Contact Details"></textarea>
         <button>Post</button>
     </form>
     </div>
@@ -28,11 +28,30 @@
         <h2>All Posts</h2>
        @foreach ($posts as $post)
            <div style="background-color:gray;padding:10px;margin:10px">
-            <h3>{{$post['title']}}</h3>
-            {{$post['body']}}
+            <h3>Course: {{$post['title']}}</h3>
+            <p>Description: {{$post['body']}}</p>
+            <p>Contact: {{$post['contact']}}</p>
+            <p>Name: {{$post->user->name}}</p>
            </div>
        @endforeach
         </div>
+
+        <div>
+            <h2>My Posts</h2>
+           @foreach ($userposts as $userpost)
+               <div style="background-color:pink;padding:10px;margin:10px">
+                <h3>Course: {{$post['title']}}</h3>
+                <p>Description: {{$post['body']}}</p>
+                <p>Contact: {{$post['contact']}}</p>
+                <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
+                <form action="/delete-post/{{$post->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button>Delete</button>
+                </form>
+               </div>
+           @endforeach
+            </div>
 
     @else
 

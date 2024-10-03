@@ -22,8 +22,17 @@
         <textarea name="body" placeholder="Contact Details"></textarea>
         <button>Post</button>
     </form>
-
     </div>
+
+    <div>
+        <h2>All Posts</h2>
+       @foreach ($posts as $post)
+           <div style="background-color:gray;padding:10px;margin:10px">
+            <h3>{{$post['title']}}</h3>
+            {{$post['body']}}
+           </div>
+       @endforeach
+        </div>
 
     @else
 

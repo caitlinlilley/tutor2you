@@ -5,15 +5,40 @@
     <title>Document</title>
 </head>
 <body>
-    <div> 
-    <h2>Register</h2>
-    <form action="/register" method="post">
+
+    @auth
+     <p>You have successfully logged in<p>
+     <form action="/logout" method="POST">
         @csrf
-        <input name="name" type="text" placeholder= "name">
-        <input name="email" type="text" placeholder= "email">
-        <input name="password" type="password" placeholder= "password">
-        <button>Register</button>
+        <button>Log out</button>
     </form>
-    </div>
+
+    @else
+
+
+    <div> 
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            @csrf
+            <input name="name" type="text" placeholder= "name">
+            <input name="email" type="text" placeholder= "email">
+            <input name="password" type="password" placeholder= "password">
+            <button>Register</button>
+        </form>
+        </div>
+
+        <div> 
+            <h2>Login to an existing account</h2>
+            <form action="/login" method="post">
+                @csrf
+                <input name="loginname" type="text" placeholder= "name">
+                <input name="loginpassword" type="password" placeholder= "password">
+                <button>Log in</button>
+            </form>
+            </div>
+
+    @endauth
+
+   
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor2You</title>
+    <title>Tutor2You - My Profile</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
-        
+
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #f5f7fa;
@@ -21,41 +21,41 @@
         }
 
         .sidebar {
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: flex-start; /* Align items to the start */
-}
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            align-items: flex-start; /* Align items to the start */
+        }
 
-.sidebar h2 {
-    color: #ff6f61;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .sidebar h2 {
+            color: #ff6f61;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.nav-button {
-    display: block;
-    color: white;
-    background-color: transparent; /* Transparent background */
-    padding: 10px 15px; /* Padding for button */
-    text-decoration: none;
-    font-size: 18px;
-    margin-bottom: 10px;
-    border: none; /* Remove border */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
-    width: 100%; /* Full width of the sidebar */
-    text-align: left; /* Align text to the left */
-}
+        .nav-button {
+            display: block;
+            color: white;
+            background-color: transparent; /* Transparent background */
+            padding: 10px 15px; /* Padding for button */
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: none; /* Remove border */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+            width: 100%; /* Full width of the sidebar */
+            text-align: left; /* Align text to the left */
+        }
 
-.nav-button:hover {
-    background-color: #575757; /* Background color on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
-}
+        .nav-button:hover {
+            background-color: #575757; /* Background color on hover */
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
 
         .content {
             flex-grow: 1;
@@ -98,7 +98,7 @@
             transform: translateY(-3px);
         }
 
-        .form-container, .posts-container {
+        .profile-container {
             background: #fff;
             padding: 20px;
             margin-bottom: 20px;
@@ -107,73 +107,46 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        .form-container:hover, .posts-container:hover {
+        .profile-container:hover {
             transform: translateY(-5px);
         }
 
-        input[type="text"], input[type="password"], textarea {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #ff6f61;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 8px;
-            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: #ff6f61;
             outline: none;
-            transition: border-color 0.3s;
         }
 
-        input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-            border-color: #ffa07a;
-        }
-
-        button {
+        .update-button {
             background-color: #ff6f61;
             color: white;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
         }
 
-        button:hover {
+        .update-button:hover {
             background-color: #e85850;
             transform: translateY(-3px);
-        }
-
-        .post {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 5px solid #ff6f61;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .post-title {
-            font-size: 22px;
-            color: #ff6f61;
-            margin-bottom: 10px;
-        }
-
-        .post-description, .post-contact, .post-name {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .edit-link {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .edit-link:hover {
-            text-decoration: underline;
-        }
-
-        .delete-form {
-            display: inline;
         }
 
         .logo {
@@ -201,7 +174,12 @@
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Welcome to Tutor2You 🎉</div>
+                <div class="logo">🎉 Tutor2You 🎉</div>
+
+                <div class="welcome-message">
+                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+                </div>
+                
 
                 @auth
                 <p class="auth-message">You have successfully logged in</p>
@@ -209,17 +187,39 @@
                     @csrf
                     <button class="logout-button">Log out</button>
                 </form>
-                <div class="welcome-message">
-                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+
+                <div class="profile-container">
+                    <h2>My Profile</h2>
+
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+
+                    <form action="/my-profile" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" value="{{ $user->name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" value="{{ $user->email }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">New Password (leave blank to keep current):</label>
+                            <input type="password" name="password" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_confirmation">Confirm New Password:</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation">
+                        </div>
+                        <button type="submit" class="update-button">Update Profile</button>
+                    </form>
                 </div>
-
-
-
-
 
                 @else
 
-                <div class="form-container"> 
+                {{-- <div class="form-container"> 
                     <h2>Login to an existing account</h2>
                     <form action="/login" method="post">
                         @csrf
@@ -238,14 +238,7 @@
                         <input name="password" type="password" placeholder="Password">
                         <button>Register</button>
                     </form>
-                </div>
-                <div class="requirements">
-                    <h3>Username & Password Requirements:</h3>
-                    <ul>
-                        <li><strong>Username:</strong> Must be 3-20 characters long, must be unique.</li>
-                        <li><strong>Password:</strong> Must be at least 8 characters long.</li>
-                    </ul>
-                </div>
+                </div> --}}
 
                 @endauth
             </div>
@@ -254,3 +247,4 @@
 
 </body>
 </html>
+

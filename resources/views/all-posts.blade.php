@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor2You - My Posts</title>
+    <title>Tutor2You - All Posts</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
 
@@ -169,7 +169,7 @@
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Welcome to Tutor2You 🎉</div>
+                <div class="logo">🎉 Tutor2You 🎉</div>
 
                 @auth
                 <p class="auth-message">You have successfully logged in</p>
@@ -177,6 +177,9 @@
                     @csrf
                     <button class="logout-button">Log out</button>
                 </form>
+                <div class="welcome-message">
+                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+                </div>
 
                 <div class="posts-container">
                     <h2>All Posts</h2>
@@ -192,7 +195,7 @@
 
                 @else
 
-                <div class="form-container"> 
+                {{-- <div class="form-container"> 
                     <h2>Login to an existing account</h2>
                     <form action="/login" method="post">
                         @csrf
@@ -211,7 +214,7 @@
                         <input name="password" type="password" placeholder="Password">
                         <button>Register</button>
                     </form>
-                </div>
+                </div> --}}
 
                 @endauth
             </div>

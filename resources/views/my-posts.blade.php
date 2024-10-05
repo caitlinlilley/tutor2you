@@ -15,6 +15,51 @@
             color: #333;
         }
 
+        .form-container {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .form-container:hover {
+        transform: translateY(-5px);
+    }
+
+    input[type="text"], input[type="password"], textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 2px solid #ff6f61;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+        border-color: #ffa07a;
+    }
+
+    button {
+        background-color: #ff6f61;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #e85850;
+        transform: translateY(-3px);
+    }
+
+
         .main-container {
             display: flex;
             min-height: 100vh;
@@ -171,7 +216,7 @@
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Welcome to Tutor2You 🎉</div>
+                <div class="logo">🎉 Tutor2You 🎉</div>
 
                 @auth
                 <p class="auth-message">You have successfully logged in</p>
@@ -179,6 +224,22 @@
                     @csrf
                     <button class="logout-button">Log out</button>
                 </form>
+                <div class="welcome-message">
+                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+                </div>
+
+                <div class="form-container">
+                    <h2>Create a New Post</h2>
+                    <form action="/create-post" method="POST">
+                        @csrf
+                        <input type="text" name="title" placeholder="Course ID" required>
+                        <textarea name="body" placeholder="Qualifications, experience etc." required></textarea>
+                        <textarea name="contact" placeholder="Contact Details" required></textarea>
+                        <button type="submit">Post</button>
+                    </form>
+                </div>
+                
+                
 
                 <div class="posts-container">
                     <h2>My Posts</h2>
@@ -199,7 +260,7 @@
 
                 @else
 
-                <div class="form-container"> 
+                {{-- <div class="form-container"> 
                     <h2>Login to an existing account</h2>
                     <form action="/login" method="post">
                         @csrf
@@ -218,7 +279,7 @@
                         <input name="password" type="password" placeholder="Password">
                         <button>Register</button>
                     </form>
-                </div>
+                </div> --}}
 
                 @endauth
             </div>

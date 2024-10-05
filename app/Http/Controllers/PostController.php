@@ -12,7 +12,7 @@ class PostController extends Controller
         if (auth()->user()->id===$post['user_id']){
             $post->delete();
         }
-        return redirect('/');
+        return redirect('/my-posts');
     }
 
     public function updatePost(Post $post, Request $request) {
@@ -31,7 +31,7 @@ class PostController extends Controller
         $incomingFields['contact'] = strip_tags($incomingFields['contact']);
 
         $post->update($incomingFields);
-        return redirect('/');
+        return redirect('/my-posts');
     }
 
     public function showEditScreen(Post $post) {
@@ -52,7 +52,7 @@ class PostController extends Controller
         $incomingFields['contact'] = strip_tags($incomingFields['contact']);
         $incomingFields['user_id'] = auth()->id();
         Post::create($incomingFields);
-        return redirect('/');
+        return redirect('/my-posts');
     }
 
     public function myPosts()

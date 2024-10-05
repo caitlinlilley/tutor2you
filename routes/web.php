@@ -4,6 +4,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () {
     $posts = Post::all();
@@ -26,7 +27,9 @@ Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
 Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 
 //Navigation bar routes
-
 Route::get('/my-posts', [PostController::class, 'myPosts']);
 Route::get('/find-tutor', [PostController::class, 'allPosts']);
+
+Route::get('/my-profile', [UserProfileController::class, 'showProfile']);
+Route::post('/my-profile', [UserProfileController::class, 'updateProfile']);
 

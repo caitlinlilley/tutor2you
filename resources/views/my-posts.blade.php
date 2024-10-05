@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor2You</title>
+    <title>Tutor2You - My Posts</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
-        
+
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #f5f7fa;
@@ -20,42 +20,43 @@
             min-height: 100vh;
         }
 
-        .sidebar {
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: flex-start; /* Align items to the start */
-}
+            .sidebar {
+        width: 250px;
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
 
-.sidebar h2 {
-    color: #ff6f61;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+    .sidebar h2 {
+        color: #ff6f61;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-.nav-button {
-    display: block;
-    color: white;
-    background-color: transparent; /* Transparent background */
-    padding: 10px 15px; /* Padding for button */
-    text-decoration: none;
-    font-size: 18px;
-    margin-bottom: 10px;
-    border: none; /* Remove border */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
-    width: 100%; /* Full width of the sidebar */
-    text-align: left; /* Align text to the left */
-}
+    .nav-button {
+        display: block;
+        color: white;
+        background-color: transparent; /* Transparent background */
+        padding: 10px 15px; /* Padding for button */
+        text-decoration: none;
+        font-size: 18px;
+        margin-bottom: 10px;
+        border: none; /* Remove border */
+        border-radius: 8px; /* Rounded corners */
+        transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+        width: 100%; /* Full width of the sidebar */
+        text-align: left; /* Align text to the left */
+    }
 
-.nav-button:hover {
-    background-color: #575757; /* Background color on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
-}
+    .nav-button:hover {
+        background-color: #575757; /* Background color on hover */
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+
 
         .content {
             flex-grow: 1;
@@ -98,7 +99,7 @@
             transform: translateY(-3px);
         }
 
-        .form-container, .posts-container {
+        .posts-container {
             background: #fff;
             padding: 20px;
             margin-bottom: 20px;
@@ -107,39 +108,8 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        .form-container:hover, .posts-container:hover {
+        .posts-container:hover {
             transform: translateY(-5px);
-        }
-
-        input[type="text"], input[type="password"], textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #ff6f61;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-            border-color: #ffa07a;
-        }
-
-        button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        button:hover {
-            background-color: #e85850;
-            transform: translateY(-3px);
         }
 
         .post {
@@ -210,19 +180,22 @@
                     <button class="logout-button">Log out</button>
                 </form>
 
-                <div class="form-container">
-                    <h2>Create a New Post</h2>
-                    <form action="/create-post" method="POST">
-                        @csrf
-                        <input type="text" name="title" placeholder="Course ID"> 
-                        <textarea name="body" placeholder="Qualifications, experience etc."></textarea>
-                        <textarea name="contact" placeholder="Contact Details"></textarea>
-                        <button>Post</button>
-                    </form>
+                <div class="posts-container">
+                    <h2>My Posts</h2>
+                    @foreach ($userposts as $userpost)
+                        <div class="post" style="border-left: 5px solid #FFC107;">
+                            <h3 class="post-title">Course: {{$userpost['title']}}</h3>
+                            <p class="post-description">Description: {{$userpost['body']}}</p>
+                            <p class="post-contact">Contact: {{$userpost['contact']}}</p>
+                            <p><a class="edit-link" href="/edit-post/{{$userpost->id}}">Edit</a></p>
+                            <form class="delete-form" action="/delete-post/{{$userpost->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button>Delete</button>
+                            </form>
+                        </div>
+                    @endforeach
                 </div>
-
-
-
 
                 @else
 
@@ -254,3 +227,6 @@
 
 </body>
 </html>
+
+
+

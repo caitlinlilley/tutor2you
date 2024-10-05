@@ -54,4 +54,27 @@ class PostController extends Controller
         Post::create($incomingFields);
         return redirect('/');
     }
+
+    public function myPosts()
+{
+    // Check if the user is authenticated
+    if (!auth()->check()) {
+        return redirect('/login'); // Redirect to login if not authenticated
+    }
+
+    // Retrieve posts belonging to the logged-in user
+    $userposts = Post::where('user_id', auth()->id())->get();
+
+    // Return the view with user posts
+    return view('my-posts', compact('userposts'));
+}
+
+public function allPosts()
+{
+    // Assuming you have a Post model
+    $allposts = Post::all(); // Retrieve all posts
+
+    return view('all-posts', compact('allposts')); // Replace 'find-tutor' with the actual view name
+}
+
 }

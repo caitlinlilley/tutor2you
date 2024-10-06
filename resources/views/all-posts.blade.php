@@ -181,6 +181,23 @@
             transform: translateY(-3px);
         }
 
+        .all-posts-button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-left: 10px;
+        }
+
+        .all-posts-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
     </style>
 </head>
 <body>
@@ -215,6 +232,7 @@
                     <form action="{{ url('/search') }}" method="GET">
                         <input type="text" name="query" class="search-input" placeholder="Search Course Code...">
                         <button type="submit" class="search-button">Search</button>
+                        <button type="button" class="all-posts-button" onclick="window.location.href='{{ url('/find-tutor') }}'"> Show All Posts</button>
                     </form>
                 </div>
 
@@ -261,6 +279,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 </html>

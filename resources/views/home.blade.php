@@ -223,7 +223,7 @@
                     <h2>Login to an existing account</h2>
                     <form action="/login" method="post">
                         @csrf
-                        <input name="loginname" type="text" placeholder="Name">
+                        <input name="loginname" type="text" placeholder="Username">
                         <input name="loginpassword" type="password" placeholder="Password">
                         <button>Log in</button>
                     </form>
@@ -233,7 +233,7 @@
                     <h2>Register</h2>
                     <form action="/register" method="post">
                         @csrf
-                        <input name="name" type="text" placeholder="Name">
+                        <input name="name" type="text" placeholder="Username">
                         <input name="email" type="text" placeholder="Email">
                         <input name="password" type="password" placeholder="Password">
                         <button>Register</button>

@@ -151,6 +151,36 @@
             margin: 20px 0;
             font-weight: bold;
         }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: #e85850;
+            transform: translateY(-3px);
+        }
+
     </style>
 </head>
 <body>
@@ -181,16 +211,27 @@
                     <h2>Welcome, {{ Auth::user()->name }}!</h2>
                 </div>
 
+                <div class="search-bar">
+                    <form action="{{ url('/search') }}" method="GET">
+                        <input type="text" name="query" class="search-input" placeholder="Search Course Code...">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </div>
+
                 <div class="posts-container">
                     <h2>All Posts</h2>
-                    @foreach ($allposts as $allpost)
-                        <div class="post">
-                            <h3 class="post-title">Course: {{$allpost['title']}}</h3>
-                            <p class="post-description">Description: {{$allpost['body']}}</p>
-                            <p class="post-contact">Contact: {{$allpost['contact']}}</p>
-                            <p class="post-name">Posted by: {{$allpost->user->name}}</p>
-                        </div>
-                    @endforeach
+                    @if($allposts->isEmpty())
+                        <p>No posts found matching your search for "{{ $query }}".</p>
+                    @else
+                        @foreach ($allposts as $allpost)
+                            <div class="post">
+                                <h3 class="post-title">Course: {{$allpost['title']}}</h3>
+                                <p class="post-description">Description: {{$allpost['body']}}</p>
+                                <p class="post-contact">Contact: {{$allpost['contact']}}</p>
+                                <p class="post-name">Posted by: {{$allpost->user->name}}</p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
                 @else

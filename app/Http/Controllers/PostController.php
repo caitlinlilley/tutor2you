@@ -77,4 +77,12 @@ public function allPosts()
     return view('all-posts', compact('allposts')); // Replace 'find-tutor' with the actual view name
 }
 
+public function search(Request $request)
+{
+    $query = $request->input('query');
+    $allposts = Post::where('title', 'LIKE', "%{$query}%")->get();
+
+    return view('/all-posts', compact('allposts', 'query'));
+}
+
 }

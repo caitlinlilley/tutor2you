@@ -29,7 +29,10 @@ Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 //Navigation bar routes
 Route::get('/my-posts', [PostController::class, 'myPosts']);
 Route::get('/find-tutor', [PostController::class, 'allPosts']);
-
 Route::get('/my-profile', [UserProfileController::class, 'showProfile']);
+
+//Profile related routes
 Route::post('/my-profile', [UserProfileController::class, 'updateProfile']);
 
+//Search bar
+Route::get('/search', [PostController::class, 'search'])->name('search');

@@ -21,41 +21,41 @@
         }
 
         .sidebar {
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: flex-start; /* Align items to the start */
-}
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
 
-.sidebar h2 {
-    color: #ff6f61;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .sidebar h2 {
+            color: #ff6f61;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.nav-button {
-    display: block;
-    color: white;
-    background-color: transparent; /* Transparent background */
-    padding: 10px 15px; /* Padding for button */
-    text-decoration: none;
-    font-size: 18px;
-    margin-bottom: 10px;
-    border: none; /* Remove border */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
-    width: 100%; /* Full width of the sidebar */
-    text-align: left; /* Align text to the left */
-}
+        .nav-button {
+            display: block;
+            color: white;
+            background-color: transparent; 
+            padding: 10px 15px; /* Padding for button */
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: none; 
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+            width: 100%; 
+            text-align: left; 
+        }
 
-.nav-button:hover {
-    background-color: #575757; /* Background color on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
-}
+        .nav-button:hover {
+            background-color: #575757; 
+            transform: scale(1.05); 
+        }
 
         .content {
             flex-grow: 1;
@@ -183,6 +183,7 @@
             margin: 20px 0;
             font-weight: bold;
         }
+
     </style>
 </head>
 <body>
@@ -192,10 +193,12 @@
         <div class="sidebar">
             <h2>Navigation</h2>
             <button class="nav-button" onclick="location.href='/'">Home</button>
-            <button class="nav-button" onclick="location.href='/find-tutor'">Find a Tutor</button>
+            <button class="nav-button" onclick="location.href='/about-us'">About Us</button>
+            <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
             <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
+            <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
@@ -212,10 +215,6 @@
                 <div class="welcome-message">
                     <h2>Welcome, {{ Auth::user()->name }}!</h2>
                 </div>
-
-
-
-
 
                 @else
 

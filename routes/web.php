@@ -35,4 +35,4 @@ Route::get('/my-profile', [UserProfileController::class, 'showProfile']);
 Route::post('/my-profile', [UserProfileController::class, 'updateProfile']);
 
 //Search bar
-Route::get('/search', [PostController::class, 'search'])->name('search');
+Route::get('/search', [PostController::class, 'search']);

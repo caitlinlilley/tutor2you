@@ -71,10 +71,9 @@ class PostController extends Controller
 
 public function allPosts()
 {
-    // Assuming you have a Post model
     $allposts = Post::all(); // Retrieve all posts
 
-    return view('all-posts', compact('allposts')); // Replace 'find-tutor' with the actual view name
+    return view('all-posts', compact('allposts')); 
 }
 
 public function search(Request $request)

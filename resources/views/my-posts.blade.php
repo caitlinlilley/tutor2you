@@ -22,13 +22,13 @@
         border-radius: 12px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         transition: transform 0.2s ease-in-out;
-    }
+         }
 
-    .form-container:hover {
-        transform: translateY(-5px);
-    }
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
 
-    input[type="text"], input[type="password"], textarea {
+     input[type="text"], input[type="password"], textarea {
         width: 100%;
         padding: 15px;
         margin: 10px 0;
@@ -37,27 +37,27 @@
         font-size: 16px;
         outline: none;
         transition: border-color 0.3s;
-    }
+     }
 
-    input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-        border-color: #ffa07a;
-    }
+        input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+            border-color: #ffa07a;
+        }
 
-    button {
-        background-color: #ff6f61;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-    button:hover {
-        background-color: #e85850;
-        transform: translateY(-3px);
-    }
+        button:hover {
+            background-color: #e85850;
+            transform: translateY(-3px);
+        }
 
 
         .main-container {
@@ -72,8 +72,8 @@
         padding: 20px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         display: flex;
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: flex-start; /* Align items to the start */
+        flex-direction: column; 
+        align-items: flex-start; 
     }
 
     .sidebar h2 {
@@ -85,21 +85,21 @@
     .nav-button {
         display: block;
         color: white;
-        background-color: transparent; /* Transparent background */
+        background-color: transparent; 
         padding: 10px 15px; /* Padding for button */
         text-decoration: none;
         font-size: 18px;
         margin-bottom: 10px;
-        border: none; /* Remove border */
+        border: none; 
         border-radius: 8px; /* Rounded corners */
         transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
-        width: 100%; /* Full width of the sidebar */
-        text-align: left; /* Align text to the left */
+        width: 100%; 
+        text-align: left; 
     }
 
     .nav-button:hover {
-        background-color: #575757; /* Background color on hover */
-        transform: scale(1.05); /* Slightly increase size on hover */
+        background-color: #575757; 
+        transform: scale(1.05); 
     }
 
 
@@ -207,10 +207,12 @@
         <div class="sidebar">
             <h2>Navigation</h2>
             <button class="nav-button" onclick="location.href='/'">Home</button>
-            <button class="nav-button" onclick="location.href='/find-tutor'">Find a Tutor</button>
+            <button class="nav-button" onclick="location.href='/about-us'">About Us</button>
+            <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
             <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
+            <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
@@ -233,7 +235,7 @@
                     <form action="/create-post" method="POST">
                         @csrf
                         <input type="text" name="title" placeholder="Course ID" required>
-                        <textarea name="body" placeholder="Qualifications, experience etc." required></textarea>
+                        <textarea name="body" placeholder="Experience, availability etc." required></textarea>
                         <textarea name="contact" placeholder="Contact Details" required></textarea>
                         <button type="submit">Post</button>
                     </form>
@@ -260,26 +262,6 @@
 
                 @else
 
-                {{-- <div class="form-container"> 
-                    <h2>Login to an existing account</h2>
-                    <form action="/login" method="post">
-                        @csrf
-                        <input name="loginname" type="text" placeholder="Name">
-                        <input name="loginpassword" type="password" placeholder="Password">
-                        <button>Log in</button>
-                    </form>
-                </div>
-
-                <div class="form-container"> 
-                    <h2>Register</h2>
-                    <form action="/register" method="post">
-                        @csrf
-                        <input name="name" type="text" placeholder="Name">
-                        <input name="email" type="text" placeholder="Email">
-                        <input name="password" type="password" placeholder="Password">
-                        <button>Register</button>
-                    </form>
-                </div> --}}
 
                 @endauth
             </div>

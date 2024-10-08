@@ -27,15 +27,30 @@ class UserController extends Controller
     }
 
     public function register(Request $request) {
+ 
+            $messages = [
+                'name.required' => 'A username is required.',
+                'name.min' => 'Your username must be at least 3 characters.',
+                'name.max' => 'Your username must not exceed 20 characters.',
+                'name.unique' => 'This username has already been taken.',
+                'email.required' => 'An email is required.',
+                'email.email' => 'Your email must be a valid email address.',
+                'email.unique' => 'Your email has already been taken.',
+                'password.required' => 'A password is required.',
+                'password.min' => 'Your password must be at least 8 characters.',
+                'password.max' => 'Your password must not exceed 200 characters.',
+            ];
+
         $incomingFields = $request->validate([
             'name' => ['required', 'min:3', 'max:20', Rule::unique('users', 'name')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:200']
-        ]);
+        ], $messages);
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user);
         return redirect ('/');
+    
     }
 }

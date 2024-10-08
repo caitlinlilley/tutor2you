@@ -13,6 +13,10 @@
             margin: 0;
             padding: 0;
             color: #333;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+    
         }
 
         .main-container {
@@ -67,7 +71,8 @@
             color: #333;
             border-bottom: 3px solid #ff6f61;
             padding-bottom: 10px;
-            font-size: 24px;
+            font-size: 20px; 
+            margin-bottom: 10px; 
         }
 
         .auth-message {
@@ -113,8 +118,8 @@
 
         input[type="text"], input[type="password"], textarea {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 10px;
+            margin: 8px 0;
             border: 2px solid #ff6f61;
             border-radius: 8px;
             font-size: 16px;
@@ -129,7 +134,7 @@
         button {
             background-color: #ff6f61;
             color: white;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
@@ -142,40 +147,6 @@
             transform: translateY(-3px);
         }
 
-        .post {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 5px solid #ff6f61;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .post-title {
-            font-size: 22px;
-            color: #ff6f61;
-            margin-bottom: 10px;
-        }
-
-        .post-description, .post-contact, .post-name {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .edit-link {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .edit-link:hover {
-            text-decoration: underline;
-        }
-
-        .delete-form {
-            display: inline;
-        }
-
         .logo {
             font-size: 30px;
             color: #ff6f61;
@@ -183,6 +154,13 @@
             margin: 20px 0;
             font-weight: bold;
         }
+
+        .error {
+            color: red;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
 
     </style>
 </head>
@@ -228,16 +206,26 @@
                     </form>
                 </div>
 
-                <div class="form-container"> 
+                <div class="form-container">
                     <h2>Register</h2>
-                    <form action="/register" method="post">
+                    <form action="/register" method="POST">
                         @csrf
-                        <input name="name" type="text" placeholder="Username">
-                        <input name="email" type="text" placeholder="Email">
-                        <input name="password" type="password" placeholder="Password">
-                        <button>Register</button>
+                        <input type="text" name="name" placeholder="Username" value="{{ old('name') }}">
+                        @error('name')
+                        <p class="error">{{ $message }}</p>
+                        @enderror
+                        <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
+                        @error('email')
+                        <p class="error">{{ $message }}</p>
+                        @enderror
+                        <input type="password" name="password" placeholder="Password">
+                        @error('password')
+                        <p class="error">{{ $message }}</p>
+                        @enderror
+                        <button type="submit">Register</button>
                     </form>
                 </div>
+
                 <div class="requirements">
                     <h3>Username & Password Requirements:</h3>
                     <ul>

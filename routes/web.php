@@ -30,6 +30,9 @@ Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 Route::get('/my-posts', [PostController::class, 'myPosts']);
 Route::get('/find-tutor', [PostController::class, 'allPosts']);
 Route::get('/my-profile', [UserProfileController::class, 'showProfile']);
+Route::get('/about-us', function () {return view('about-us');});
+Route::get('/submit-feedback', function () {return view('submit-feedback');});
+Route::get('/contact-us', function () {return view('contact-us');});
 
 //Profile related routes
 Route::post('/my-profile', [UserProfileController::class, 'updateProfile']);

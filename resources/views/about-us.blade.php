@@ -9,7 +9,7 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #f5f7fa;
+            background-color: #9F2B68;
             margin: 0;
             padding: 0;
             color: #333;

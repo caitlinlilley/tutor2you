@@ -199,25 +199,81 @@
 
                     <form action="/my-profile" method="POST">
                         @csrf
+                        @method('PUT')
+
                         <div class="form-group">
-                            <label for="name">Username:</label>
-                            <input type="text" name="name" id="name" value="{{ $user->name }}" required>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+                
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" id="email" value="{{ $user->email }}" required>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+                
                         <div class="form-group">
-                            <label for="password">New Password (leave blank to keep current):</label>
-                            <input type="password" name="password" id="password">
+                            <label for="bio">Bio</label>
+                            <textarea name="bio" id="bio" class="form-control">{{ old('bio', $user->bio) }}</textarea>
+                            @error('bio')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+                
                         <div class="form-group">
-                            <label for="password_confirmation">Confirm New Password:</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation">
+                            <label for="expertise">Course Expertise</label>
+                            <input type="text" name="expertise" id="expertise" class="form-control" value="{{ old('expertise', $user->expertise) }}">
+                            @error('expertise')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <button type="submit" class="update-button">Update Profile</button>
+                
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <input type="text" name="availability" id="availability" class="form-control" value="{{ old('availability', $user->availability) }}">
+                            @error('availability')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="pricing">Pricing</label>
+                            <input type="text" name="pricing" id="pricing" class="form-control" value="{{ old('pricing', $user->pricing) }}">
+                            @error('pricing')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="qualifications">Qualifications</label>
+                            <input type="text" name="qualifications" id="qualifications" class="form-control" value="{{ old('qualifications', $user->qualifications) }}">
+                            @error('qualifications')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="password">Password (leave blank to keep current password)</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                            @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="password_confirmation">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                        </div>
+                
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
                     </form>
                 </div>
+                
 
                 @else
 

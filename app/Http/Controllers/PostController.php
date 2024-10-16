@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -69,9 +70,8 @@ class PostController extends Controller
     return view('my-posts', compact('userposts'));
 }
 
-public function allPosts()
-{
-    $allposts = Post::all(); // Retrieve all posts
+public function allPosts() {
+    $allposts = Post::with('user')->get(); // Retrieve all posts with their user
 
     return view('all-posts', compact('allposts')); 
 }

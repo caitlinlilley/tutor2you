@@ -38,6 +38,8 @@ Route::get('/contact-us', function () {return view('contact-us');});
 //Profile related routes
 Route::get('/my-profile', [UserProfileController::class, 'showProfile']);
 Route::put('/my-profile', [UserProfileController::class, 'updateProfile']);
+Route::get('/user/{user}', [UserProfileController::class, 'viewUserProfile'])->name('user.profile');
+
 
 
 //Search bar

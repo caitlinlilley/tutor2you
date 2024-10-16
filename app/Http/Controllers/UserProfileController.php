@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
-    // Show the profile
+    // Show the authenticated user's profile
     public function showProfile()
     {
         $user = Auth::user(); // Get the authenticated user
         return view('profile', compact('user')); // Pass the user to the view
     }
+
+        // Show another user's profile
+     public function viewUserProfile(User $user)
+    {
+    
+        return view('users-profile', compact('user')); 
+    }
+
+    
 
     // Update the profile
     public function updateProfile(Request $request)

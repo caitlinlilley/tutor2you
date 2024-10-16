@@ -249,7 +249,11 @@
                                 <h3 class="post-title">Course: {{$allpost['title']}}</h3>
                                 <p class="post-description">Description: {{$allpost['body']}}</p>
                                 <p class="post-contact">Contact: {{$allpost['contact']}}</p>
-                                <p class="post-name">Posted by: {{$allpost->user->name}}</p>
+                                @if ($allpost->user)
+                                <p class="post-name">Posted by: <a href="{{ route('user.profile', ['user' => $allpost->user->id]) }}">{{ $allpost->user->name }}</a></p>
+                            @else
+                                <p class="post-name">Posted by: Unknown</p>
+                            @endif
                             </div>
                         @endforeach
                     @endif

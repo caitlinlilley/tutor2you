@@ -9,10 +9,10 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: green;
+            background-color: #fff;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #000;
         }
 
         .main-container {
@@ -179,7 +179,8 @@
                 <div class="logo">🎉 Tutor2You 🎉</div>
 
                 <div class="welcome-message">
-                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+                    <h2>Hi, welcome, {{ Auth::user()->name }}! to Tutor2You. We are a group of university students looking to make finding a tutor as easy as possible !
+                        Tutor2You was created as we were really frustrated with the tutoring services offered to students. </h2>
                 </div>
                 
 

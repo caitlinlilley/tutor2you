@@ -273,6 +273,23 @@
                         <button type="submit" class="btn btn-primary">Update Profile</button>
                     </form>
                 </div>
+
+                <div class="feedback-list">
+                    <h2>View Your Feedback</h2>
+                    @foreach ($feedbacks as $feedback)
+                        <div class="feedback-item">
+                            <p>{{ $feedback->content }}</p>
+                            <small>
+                                Submitted by: {{ $feedback->submittedBy ? $feedback->submittedBy->name : 'Unknown User' }} 
+                                on {{ $feedback->created_at }}
+                            </small>
+                        </div>
+                    @endforeach
+                    @if ($feedbacks->isEmpty())
+                        <p>No feedback available.</p>
+                    @endif
+                </div>
+
                 
 
                 @else

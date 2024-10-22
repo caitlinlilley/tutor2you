@@ -22,7 +22,7 @@
 
         .sidebar {
             width: 250px;
-            background-color: #333;
+            background-color: #0047AB;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -50,11 +50,16 @@
             transition: background-color 0.3s, transform 0.3s; 
             width: 100%; 
             text-align: left; 
+            font-weight: 400;
+            
         }
 
         .nav-button:hover {
-            background-color: #575757; 
+            background-color: #ff6f61;
             transform: scale(1.05); 
+            transition-duration: 0.4s ease;
+            
+            
         }
 
         .content {
@@ -63,24 +68,20 @@
             position: relative;
         }
 
-        h2 {
-            color: #333;
-            border-bottom: 3px solid #ff6f61;
-            padding-bottom: 10px;
-            font-size: 24px;
-        }
+
 
         .auth-message {
-            font-size: 14px;
-            color: #28a745;
+            font-size: 16px;
+            color: #0047AB;
             margin: 0;
             position: absolute;
             top: 20px;
             right: 20px;
+            font-weight: bold;
         }
 
         .logout-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 6px 12px;
             border: none;
@@ -150,53 +151,106 @@
         }
 
         .logo {
-            font-size: 30px;
-            color: #ff6f61;
+            font-size: 40px;
+            color: #0047AB;
             text-align: center;
+            letter-spacing: 5px;
             margin: 20px 0;
-            font-weight: bold;
         }
+
+        .aboutus {
+            margin-top: 30px;
+            float: left;
+            width: 43%;
+            font-size: 18px;
+            color: #000;
+            line-height: 32px;
+            letter-spacing: 2px;
+            padding-left: 80px;
+            margin: 90px auto 0 auto;
+            font-weight: 400;
+            max-width: 600px;
+        }
+        .aboutusimage {
+            width: 329px;
+            height: 439px;
+            padding: 50px;
+            position: sticky;
+            float: right;
+            margin-right: 115px;
+            margin-top: 60px;
+          
+        }
+        .colour-onpage {
+            color: #ff6f61;;
+            font-weight: 600;
+        }
+
+        .nav-button:hover .colour-onpage {
+            color: #fff;
+        }
+
+        
+        
     </style>
 </head>
 <body>
 
     <div class="main-container">
-        @auth
+        
         <div class="sidebar">
-            <h2>Navigation</h2>
+            <h2>Tutor2You</h2>
             <button class="nav-button" onclick="location.href='/'">Home</button>
-            <button class="nav-button" onclick="location.href='/about-us'">About Us</button>
+            <button class="nav-button" onclick="location.href='/about-us'"><span class="colour-onpage">About Us</span></button>
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
             <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
-        @endauth
+    
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Tutor2You 🎉</div>
+                <div class="logo">🎉 <u><b>Tutor2You - About Us</b> </u> 🎉</div>
 
-                <div class="welcome-message">
-                    <h2>Hi, welcome, {{ Auth::user()->name }}! to Tutor2You. We are a group of university students looking to make finding a tutor as easy as possible !
-                        Tutor2You was created as we were really frustrated with the tutoring services offered to students. </h2>
+            
+                    <div class="aboutus">
+                    <p>Hi {{ Auth::user()->name }}
+                        <br>
+                        <br>
+                         <b> <span style="color: #0047AB;"> Welcome to Tutor2You !</span> </b>
+                        <br>
+                        <br>
+                        We’re a group of university students on a mission to make finding the right tutor <b>easy, stress-free 
+                        and tailored to your needs. </b>
+                        <br>
+                        <br>
+                        Tutor2You was born out of our frustration with the limitations of existing tutoring services. 
+                        We believe the process should be <b> <span style="color: #0047AB;">quick and effective</b></span>, 
+                        so you can focus more on learning and less on searching ! </p>
+                        <br>
+                        <br>
+                    </p>
                 </div>
+            
+            <img class="aboutusimage" src="images/aboutus.JPG">
+
+
+
+                
                 
 
-                @auth
+            
                 <p class="auth-message">You have successfully logged in</p>
                 <form action="/logout" method="POST">
-                    @csrf
+                    
                     <button class="logout-button">Log out</button>
                 </form>
 
                
 
-                @else
-
-
-                @endauth
+               
             </div>
         </div>
     </div>

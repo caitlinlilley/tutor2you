@@ -22,7 +22,7 @@
 
         .sidebar {
             width: 250px;
-            background-color: #333;
+            background-color: #929191;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
         }
 
         .sidebar h2 {
-            color: #ff6f61;
+            color: #0047AB;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -65,7 +65,7 @@
 
         h2 {
             color: #333;
-            border-bottom: 3px solid #ff6f61;
+            border-bottom: 3px solid #0047AB;
             padding-bottom: 10px;
             font-size: 24px;
         }
@@ -80,7 +80,7 @@
         }
 
         .logout-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 6px 12px;
             border: none;
@@ -94,7 +94,7 @@
         }
 
         .logout-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
@@ -129,12 +129,12 @@
         }
 
         .form-group input:focus {
-            border-color: #ff6f61;
+            border-color: #0047AB;
             outline: none;
         }
 
         .update-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -145,13 +145,13 @@
         }
 
         .update-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
         .logo {
             font-size: 30px;
-            color: #ff6f61;
+            color: #0047AB;
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
@@ -169,14 +169,13 @@
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
-            <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Tutor2You 🎉</div>
+                <div class="logo">📚🎓 Tutor2You 📚🎓</div>
 
                 <div class="welcome-message">
                     <h2>Welcome, {{ Auth::user()->name }}!</h2>
@@ -202,7 +201,7 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Username</label>
                             <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
                             @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>

@@ -24,7 +24,7 @@
 
         h2 {
             color: #333;
-            border-bottom: 3px solid #ff6f61;
+            border-bottom: 3px solid ##0047AB;
             padding-bottom: 10px;
             font-size: 24px;
         }
@@ -46,7 +46,7 @@
             width: 100%;
             padding: 15px;
             margin: 10px 0;
-            border: 2px solid #ff6f61;
+            border: 2px solid #0047AB;
             border-radius: 8px;
             font-size: 16px;
             outline: none;
@@ -58,7 +58,7 @@
         }
 
         button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -69,13 +69,13 @@
         }
 
         button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
         .logo {
             font-size: 30px;
-            color: #ff6f61;
+            color: #0047AB;
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
@@ -85,7 +85,7 @@
 <body>
 
     <div class="container">
-        <div class="logo">🎉 Tutor2You 🎉</div>
+        <div class="logo">📚🎓 Tutor2You 📚🎓</div>
 
         <div class="form-container">
             <h2>Edit Post</h2>

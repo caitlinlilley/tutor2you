@@ -22,7 +22,7 @@
 
         .sidebar {
             width: 250px;
-            background-color: #333;
+            background-color: #929191;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
         }
 
         .sidebar h2 {
-            color: #ff6f61;
+            color: #0047AB;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -65,7 +65,7 @@
 
         h2 {
             color: #333;
-            border-bottom: 3px solid #ff6f61;
+            border-bottom: 3px solid #0047AB;
             padding-bottom: 10px;
             font-size: 24px;
         }
@@ -80,7 +80,7 @@
         }
 
         .logout-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 6px 12px;
             border: none;
@@ -94,68 +94,38 @@
         }
 
         .logout-button:hover {
-            background-color: #e85850;
-            transform: translateY(-3px);
-        }
-
-        .profile-container {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .profile-container:hover {
-            transform: translateY(-5px);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        .form-group input:focus {
-            border-color: #ff6f61;
-            outline: none;
-        }
-
-        .update-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .update-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
         .logo {
             font-size: 30px;
-            color: #ff6f61;
+            color: #0047AB;
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
         }
+
+        .contact-info {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .contact-info h2 {
+            color: #0047AB;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-us p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
     </style>
 </head>
 <body>
@@ -169,14 +139,13 @@
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
-            <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Tutor2You 🎉</div>
+                <div class="logo">📚🎓 Tutor2You 📚🎓</div>
 
                 <div class="welcome-message">
                     <h2>Welcome, {{ Auth::user()->name }}!</h2>
@@ -189,6 +158,13 @@
                     @csrf
                     <button class="logout-button">Log out</button>
                 </form>
+
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or feedback, please feel free to contact us via email at: <span style="color: #0047AB;">info@Tutor2You.com.au</span>.</p>
+                <p>We look forward to hearing from you!</p>
+            </div>
 
                
 

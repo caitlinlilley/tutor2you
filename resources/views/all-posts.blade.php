@@ -22,7 +22,7 @@
 
         .sidebar {
         width: 250px;
-        background-color: #333;
+        background-color: #929191;
         color: white;
         padding: 20px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
          }
 
         .sidebar h2 {
-        color: #ff6f61;
+        color: #0047AB;
         font-size: 24px;
         margin-bottom: 20px;
           }
@@ -65,7 +65,7 @@
 
         h2 {
             color: #333;
-            border-bottom: 3px solid #ff6f61;
+            border-bottom: 3px solid #0047AB;
             padding-bottom: 10px;
             font-size: 24px;
         }
@@ -80,7 +80,7 @@
         }
 
         .logout-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 6px 12px;
             border: none;
@@ -94,7 +94,7 @@
         }
 
         .logout-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
@@ -115,14 +115,14 @@
             background-color: #fff;
             padding: 20px;
             margin-bottom: 15px;
-            border-left: 5px solid #ff6f61;
+            border-left: 5px solid #0047AB;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .post-title {
             font-size: 22px;
-            color: #ff6f61;
+            color: #0047AB;
             margin-bottom: 10px;
         }
 
@@ -147,7 +147,7 @@
 
         .logo {
             font-size: 30px;
-            color: #ff6f61;
+            color: #0047AB;
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
@@ -169,7 +169,7 @@
         .search-button {
             padding: 10px;
             font-size: 16px;
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             border: none;
             border-radius: 0 4px 4px 0;
@@ -178,7 +178,7 @@
         }
 
         .search-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
@@ -212,14 +212,13 @@
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
-            <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Tutor2You 🎉</div>
+                <div class="logo">📚🎓 Tutor2You 📚🎓</div>
 
                 @auth
                 <p class="auth-message">You have successfully logged in</p>
@@ -270,6 +269,5 @@
 
 </body>
 </html>
-
 
 

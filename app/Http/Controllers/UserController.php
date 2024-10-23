@@ -15,10 +15,21 @@ class UserController extends Controller
             'loginpassword' => 'required'
         ]);
 
+        $user = User::where('name', $incomingFields['loginname'])->first();
+
+        if (!$user) {
+            // Redirect back with an error message for non-existent username
+            return back()->withErrors(['loginname' => 'This username does not exist. Please register an account!'])->withInput();
+        }
+
         if (auth()->attempt(['name' => $incomingFields['loginname'], 'password' => $incomingFields['loginpassword']])) {
             $request->session()->regenerate();
+            return redirect('/');
         }
-        return redirect('/');
+        
+            // If authentication fails, redirect back with an error message for incorrect password
+        return back()->withErrors(['loginpassword' => 'Incorrect password.'])->withInput();
+
     }
 
     public function logout() {

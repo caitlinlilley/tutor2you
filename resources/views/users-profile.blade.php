@@ -16,7 +16,7 @@
         }
 
         button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -27,7 +27,7 @@
         }
 
         button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
@@ -38,7 +38,7 @@
 
         .sidebar {
             width: 250px;
-            background-color: #333;
+            background-color: #929191;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -48,7 +48,7 @@
         }
 
         .sidebar h2 {
-            color: #ff6f61;
+            color: #0047AB;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -85,7 +85,7 @@
 
         .logo {
             font-size: 30px;
-            color: #ff6f61;
+            color: #0047AB;
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
@@ -101,7 +101,7 @@
         }
 
         .logout-button {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             padding: 6px 12px;
             border: none;
@@ -115,13 +115,13 @@
         }
 
         .logout-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
         h2 {
             color: #333;
-            border-bottom: 3px solid #ff6f61;
+            border-bottom: 3px solid #0047AB;
             padding-bottom: 10px;
             font-size: 24px;
         }
@@ -157,7 +157,7 @@
         .back-button {
             margin-top: 20px;
             padding: 10px 15px;
-            background-color: #ff6f61;
+            background-color: #0047AB;
             color: white;
             border: none;
             border-radius: 5px;
@@ -166,13 +166,14 @@
         }
 
         .back-button:hover {
-            background-color: #e55c4c;
+            background-color: #0047AB;
         }
 
         .feedback-form {
             width: 100%;
             max-width: 600px;
             margin-bottom: 30px;
+
         }
 
         .feedback-form textarea {
@@ -218,14 +219,13 @@
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
-            <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
         @endauth
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 Tutor2You 🎉</div>
+                <div class="logo">📚🎓 Tutor2You 📚🎓</div>
 
                 @auth
                 <p class="auth-message">You have successfully logged in</p>

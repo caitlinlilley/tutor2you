@@ -92,15 +92,14 @@
             font-size: 20px; 
             margin-bottom: 10px; 
         }
-
+        
         .auth-message {
-            font-size: 16px;
-            color: #0047AB;
+            font-size: 14px;
+            color: #28a745;
             margin: 0;
             position: absolute;
             top: 20px;
             right: 20px;
-            font-weight: bold;
         }
 
         .logout-button {
@@ -132,7 +131,6 @@
             font-size: 30px;
             color: #0047AB;
             text-align: center;
-            letter-spacing: 5px;
             margin: 20px 0;
             font-weight: bold;
         }

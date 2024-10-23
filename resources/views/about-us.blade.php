@@ -6,33 +6,43 @@
     <title>Tutor2You - About Us</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
-
+        
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #fff;
+            background-color: #f5f7fa;
             margin: 0;
             padding: 0;
-            color: #000;
+            color: #333;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+    
         }
 
         .main-container {
             display: flex;
             min-height: 100vh;
+            opacity: 98%;
         }
 
         .sidebar {
             width: 250px;
-            background-color: #0047AB;
+            background-color: #929191;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column; 
             align-items: flex-start; 
+            flex-shrink: 0; 
+            flex-grow: 0;
+            height: 100vh;
+            position: sticky;
+            top: 0;
         }
 
         .sidebar h2 {
-            color: #ff6f61;
+            color: #0047AB;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -41,13 +51,13 @@
             display: block;
             color: white;
             background-color: transparent; 
-            padding: 10px 15px; 
+            padding: 10px 15px; /* Padding for button */
             text-decoration: none;
             font-size: 18px;
             margin-bottom: 10px;
             border: none; 
-            border-radius: 8px; 
-            transition: background-color 0.3s, transform 0.3s; 
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
             width: 100%; 
             text-align: left; 
             font-weight: 400;
@@ -55,7 +65,7 @@
         }
 
         .nav-button:hover {
-            background-color: #ff6f61;
+            background-color: #0047AB;
             transform: scale(1.05); 
             transition-duration: 0.4s ease;
             
@@ -64,11 +74,24 @@
 
         .content {
             flex-grow: 1;
+            flex-direction: row;
             padding: 20px;
-            position: relative;
         }
 
+        h2 {
+            color: #333;
+            border-bottom: 3px solid #0047AB;
+            padding-bottom: 10px;
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        }
 
+        h3 {
+            color: #333;
+            padding-bottom: 10px;
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        }
 
         .auth-message {
             font-size: 16px;
@@ -95,103 +118,76 @@
         }
 
         .logout-button:hover {
-            background-color: #e85850;
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
-        .profile-container {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease-in-out;
-        }
 
-        .profile-container:hover {
-            transform: translateY(-5px);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        .form-group input:focus {
-            border-color: #ff6f61;
-            outline: none;
-        }
-
-        .update-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .update-button:hover {
-            background-color: #e85850;
+        button:hover {
+            background-color: #0047AB;
             transform: translateY(-3px);
         }
 
         .logo {
-            font-size: 40px;
+            font-size: 30px;
             color: #0047AB;
             text-align: center;
             letter-spacing: 5px;
             margin: 20px 0;
+            font-weight: bold;
         }
 
-        .aboutus {
-            margin-top: 30px;
-            float: left;
-            width: 43%;
+        .error {
+            color: red;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        
+        .mission, .team {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .mission h2, .team h2 {
+            color: #0047AB;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mission p, .team p {
             font-size: 18px;
-            color: #000;
-            line-height: 32px;
-            letter-spacing: 2px;
-            padding-left: 80px;
-            margin: 90px auto 0 auto;
-            font-weight: 400;
-            max-width: 600px;
-        }
-        .aboutusimage {
-            width: 329px;
-            height: 439px;
-            padding: 50px;
-            position: sticky;
-            float: right;
-            margin-right: 115px;
-            margin-top: 60px;
-          
-        }
-        .colour-onpage {
-            color: #ff6f61;;
-            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
-        .nav-button:hover .colour-onpage {
-            color: #fff;
+        .team .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        
-        
+        .team .member img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .team .member h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #0047AB;
+        }
+
+        .team .member p {
+            margin: 0;
+            font-size: 16px;
+        }
+
     </style>
 </head>
 <body>
@@ -199,58 +195,81 @@
     <div class="main-container">
         
         <div class="sidebar">
-            <h2>Tutor2You</h2>
+            <h2>Navigation</h2>
             <button class="nav-button" onclick="location.href='/'">Home</button>
             <button class="nav-button" onclick="location.href='/about-us'"><span class="colour-onpage">About Us</span></button>
             <button class="nav-button" onclick="location.href='/find-tutor'">All Posts</button>
             <button class="nav-button" onclick="location.href='/my-posts'">My Posts</button>
             <button class="nav-button" onclick="location.href='/my-profile'">My Profile</button>
-            <button class="nav-button" onclick="location.href='/submit-feedback'">Submit Feedback</button>
             <button class="nav-button" onclick="location.href='/contact-us'">Contact Us</button>
         </div>
     
         
         <div class="content">
             <div class="container">
-                <div class="logo">🎉 <u><b>Tutor2You - About Us</b> </u> 🎉</div>
-
+                <div class="logo">📚🎓 Tutor2You 📚🎓</div>
             
-                    <div class="aboutus">
-                    <p>Hi {{ Auth::user()->name }}
-                        <br>
-                        <br>
-                         <b> <span style="color: #0047AB;"> Welcome to Tutor2You !</span> </b>
-                        <br>
-                        <br>
-                        We’re a group of university students on a mission to make finding the right tutor <b>easy, stress-free 
-                        and tailored to your needs. </b>
-                        <br>
-                        <br>
-                        Tutor2You was born out of our frustration with the limitations of existing tutoring services. 
-                        We believe the process should be <b> <span style="color: #0047AB;">quick and effective</b></span>, 
-                        so you can focus more on learning and less on searching ! </p>
-                        <br>
-                        <br>
-                    </p>
-                </div>
-            
-            <img class="aboutusimage" src="images/aboutus.JPG">
-
-
-
-                
-                
-
-            
+                @auth
                 <p class="auth-message">You have successfully logged in</p>
                 <form action="/logout" method="POST">
                     
                     <button class="logout-button">Log out</button>
                 </form>
+                <div class="welcome-message">
+                    <h2>Welcome, {{ Auth::user()->name }}!</h2>
+                </div>
 
-               
+                <div class="content">
 
-               
+                    <div class="mission">
+                        <h2>Our Mission</h2>
+                        <p>We’re a group of university students on a mission to make finding the right tutor <span style="color: #0047AB;">easy, stress-free, and tailored to your needs</span>.</p>
+                        <p>Tutor2You was born out of our frustration with the limitations of existing tutoring services. We believe the process should be <span style="color: #0047AB;">quick and effective</span>, so you can focus more on learning and less on searching!</p>
+                    </div>
+
+                    <div class="team">
+                        <h2>Meet the Team</h2>
+                        <div class="member">
+                            <img src="{{ asset('images/joeyavatar.png') }}">
+                            <div>
+                                <h3>Joseph Fonteyn</h3>
+                                <p>Co-Founder & CEO</p>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <img src="{{ asset('images/caitlinavatar.png') }}">
+                            <div>
+                                <h3>Caitlin Lilley</h3>
+                                <p>Co-Founder & CIO</p>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <img src="{{ asset('images/oliveravatar.png') }}">
+                            <div>
+                                <h3>Oliver Zarak</h3>
+                                <p>Co-Founder & CFO</p>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <img src="{{ asset('images/zhanghengavatar.png') }}">
+                            <div>
+                                <h3>Zhangheng Xu</h3>
+                                <p>Co-Founder & COO</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+                    
+                    
+                </div>
+            </div>
+
+            @else
+        
+        @endauth
+        
             </div>
         </div>
     </div>
